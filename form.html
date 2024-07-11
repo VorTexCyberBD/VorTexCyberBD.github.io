@@ -3,129 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>VorTex - Cybersecurity Report Form</title>
+    <title>VorTex - Take Down Service for Partially Nude or Sexually Explicit Content</title>
+    <meta name="description" content="VorTex Cybersecurity offers a free service to help remove online nude, partially nude, or sexually explicit photos and videos taken before you were 18.">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         @import url('https://cdn.rawgit.com/sh4hids/bangla-web-fonts/bensen-handwriting/stylesheet.css');
         body {
             font-family: 'BenSenHandwriting', sans-serif;
-        }
-        .banner {
             background-image: url('https://github.com/VorTexCyberBD/.github/raw/main/profile/IMG_7812.jpeg');
             background-size: cover;
+            background-attachment: fixed;
             background-position: center;
-            height: 200px;
+        }
+        .content-wrapper {
+            background-color: rgba(255, 255, 255, 0.9);
         }
         .logo {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             background-image: url('https://avatars.githubusercontent.com/u/175133802?s=200&v=4');
             background-size: contain;
             background-repeat: no-repeat;
-            position: absolute;
-            top: 150px;
-            left: 20px;
             border-radius: 50%;
-            border: 4px solid white;
+            border: 3px solid white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            z-index: 9999;
+        }
+        .loader img {
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
-<body class="bg-gray-100">
-    <div class="banner relative"></div>
-    <div class="logo"></div>
+<body>
+    <div id="loader" class="loader">
+        <img src="https://avatars.githubusercontent.com/u/175133802?s=200&v=4" alt="VorTex Logo" class="w-24 h-24">
+    </div>
 
-    <nav class="bg-blue-600 text-white p-4 shadow-md">
-        <div class="container mx-auto">
-            <h1 class="text-2xl font-bold mb-2">VorTex Cybersecurity</h1>
-            <p class="text-sm mb-2">"সাইবার অপরাধ এর বিরুদ্ধে আপনার সুরক্ষা আমাদের দায়িত্ব"</p>
-            <p class="text-xs italic">Your protection against cybercrime is our responsibility</p>
-        </div>
-    </nav>
+    <div class="content-wrapper min-h-screen">
+        <header class="bg-blue-600 text-white p-4 shadow-md sticky top-0 z-10">
+            <div class="container mx-auto flex items-center justify-between">
+                <div class="flex items-center">
+                    <div class="logo mr-4"></div>
+                    <h1 class="text-2xl font-bold">VorTex Cybersecurity</h1>
+                </div>
+                <nav>
+                    <button id="infoButton" class="bg-white text-blue-600 px-4 py-2 rounded hover:bg-blue-100 transition duration-300">What You Need To Know</button>
+                </nav>
+            </div>
+        </header>
 
-    <div class="container mx-auto p-8">
-        <div class="bg-white shadow-lg rounded-lg p-6 mb-6">
-            <h2 class="text-xl font-bold mb-4">VorTex is committed to:</h2>
-            <ul class="list-disc pl-6 space-y-2">
-                <li>🛡️ Fortifying digital infrastructures</li>
-                <li>🔐 Safeguarding sensitive data</li>
-                <li>🌐 Cultivating a secure cyber ecosystem</li>
-                <li>🧠 Fostering cybersecurity awareness</li>
-            </ul>
-        </div>
-
-        <form id="reportForm" class="bg-white shadow-lg rounded-lg p-6">
-            <h2 class="text-2xl font-bold mb-6">Cybersecurity Incident Report Form</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="userName">
-                        আপনার নাম (Your Name)
-                    </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="userName" type="text" required>
-                </div>
-                <div>
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="userEmail">
-                        আপনার ইমেইল (Your Email)
-                    </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="userEmail" type="email" required>
-                </div>
-                <div>
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="affectedPerson">
-                        প্রভাবিত ব্যক্তির নাম (Affected Person's Name)
-                    </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="affectedPerson" type="text" required>
-                </div>
-                <div>
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="affectedPersonAge">
-                        প্রভাবিত ব্যক্তির বয়স (Affected Person's Age)
-                    </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="affectedPersonAge" type="number" min="1" max="17" required>
-                </div>
-                <div>
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="incidentType">
-                        ঘটনার ধরন (Incident Type)
-                    </label>
-                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="incidentType" required>
-                        <option value="">Select an option</option>
-                        <option value="unauthorizedAccess">Unauthorized Access</option>
-                        <option value="dataLeak">Data Leak</option>
-                        <option value="onlineHarassment">Online Harassment</option>
-                        <option value="identityTheft">Identity Theft</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="incidentDate">
-                        ঘটনার তারিখ (Incident Date)
-                    </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="incidentDate" type="date" required>
-                </div>
+        <main class="container mx-auto p-4 md:p-8">
+            <div class="bg-white shadow-lg rounded-lg p-6 mb-6 transition duration-300 hover:shadow-xl">
+                <h2 class="text-xl font-bold mb-4">VorTex is committed to:</h2>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>🛡️ Fortifying digital infrastructures</li>
+                    <li>🔐 Safeguarding sensitive data</li>
+                    <li>🌐 Cultivating a secure cyber ecosystem</li>
+                    <li>🧠 Fostering cybersecurity awareness</li>
+                </ul>
             </div>
 
-            <div class="mt-6">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="incidentDescription">
-                    ঘটনার বিবরণ (Incident Description)
-                </label>
-                <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="incidentDescription" rows="4" required></textarea>
+            <div class="bg-white shadow-lg rounded-lg p-6 mb-6 transition duration-300 hover:shadow-xl">
+                <h2 class="text-2xl font-bold mb-4">Cybersecurity Incident Report Form</h2>
+                <form id="reportForm" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="userName" class="block text-sm font-medium text-gray-700">আপনার নাম (Your Name)</label>
+                            <input type="text" id="userName" name="userName" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                        </div>
+                        <div>
+                            <label for="userEmail" class="block text-sm font-medium text-gray-700">আপনার ইমেইল (Your Email)</label>
+                            <input type="email" id="userEmail" name="userEmail" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                        </div>
+                        <div>
+                            <label for="userPhone" class="block text-sm font-medium text-gray-700">আপনার ফোন নম্বর (Your Phone Number)</label>
+                            <input type="tel" id="userPhone" name="userPhone" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                        </div>
+                        <div>
+                            <label for="affectedPerson" class="block text-sm font-medium text-gray-700">প্রভাবিত ব্যক্তির নাম (Affected Person's Name)</label>
+                            <input type="text" id="affectedPerson" name="affectedPerson" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                        </div>
+                        <div>
+                            <label for="affectedPersonAge" class="block text-sm font-medium text-gray-700">প্রভাবিত ব্যক্তির বয়স (Affected Person's Age)</label>
+                            <input type="number" id="affectedPersonAge" name="affectedPersonAge" min="1" max="17" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                        </div>
+                        <div>
+                            <label for="incidentDate" class="block text-sm font-medium text-gray-700">ঘটনার তারিখ (Incident Date)</label>
+                            <input type="date" id="incidentDate" name="incidentDate" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="incidentType" class="block text-sm font-medium text-gray-700">ঘটনার ধরন (Incident Type)</label>
+                        <select id="incidentType" name="incidentType" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                            <option value="">Select an option</option>
+                            <option value="nude">Nude Photo/Video</option>
+                            <option value="partiallyNude">Partially Nude Photo/Video</option>
+                            <option value="sexuallyExplicit">Sexually Explicit Content</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="incidentDescription" class="block text-sm font-medium text-gray-700">ঘটনার বিবরণ (Incident Description)</label>
+                        <textarea id="incidentDescription" name="incidentDescription" rows="4" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"></textarea>
+                    </div>
+                    <div>
+                        <label for="evidence" class="block text-sm font-medium text-gray-700">প্রমাণ আপলোড করুন (Upload Evidence)</label>
+                        <input type="file" id="evidence" name="evidence" accept="image/*,video/*" class="mt-1 block w-full">
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300">রিপোর্ট জমা দিন (Submit Report)</button>
+                    </div>
+                </form>
             </div>
 
-            <div class="mt-6">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="imageUpload">
-                    প্রমাণ আপলোড করুন (Upload Evidence)
-                </label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="imageUpload" type="file" accept="image/*">
+            <div class="bg-white shadow-lg rounded-lg p-6 mb-6 transition duration-300 hover:shadow-xl">
+                <h2 class="text-2xl font-bold mb-4">Take Down Statistics</h2>
+                <canvas id="takeDownChart"></canvas>
             </div>
+        </main>
 
-            <div class="mt-8">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" type="submit">
-                    রিপোর্ট জমা দিন (Submit Report)
-                </button>
+        <footer class="bg-gray-800 text-white p-8">
+            <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <p>24-hour tip line: <a href="tel:8008435678" class="underline hover:text-blue-400 transition duration-300">(800) 843-5678</a></p>
+                    <p>Email: info@vortexcyber.bd</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-blue-400 transition duration-300">About Us</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition duration-300">Services</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition duration-300">Resources</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Connect with us</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://t.me/VorTexCyberBD" class="text-3xl hover:text-blue-400 transition duration-300"><i class="fab fa-telegram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61562470161288&mibextid=LQQJ4d" class="text-3xl hover:text-blue-400 transition duration-300"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
             </div>
-        </form>
+        </footer>
     </div>
 
     <script>
+        // Loader and Terms popup
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loader').style.display = 'none';
+                Swal.fire({
+                    title: 'Terms and Conditions',
+                    html: `
+                        <p>By using this service, you agree to our terms and conditions.</p>
+                        <p>We are committed to protecting your privacy and helping you remove inappropriate content.</p>
+                    `,
+                    icon: 'info',
+                    confirmButtonText: 'I Agree'
+                });
+            }, 1500);
+        });
+
+        // Info button popup
+        document.getElementById('infoButton').addEventListener('click', function() {
+            Swal.fire({
+                title: 'What You Need To Know',
+                html: `
+                    <ul class="text-left">
+                        <li>Take It Down is a free online service to help remove online nude, partially nude, or sexually explicit photos and videos taken before you were 18</li>
+                        <li>You can remain anonymous while using the service and you will not have to send your images or videos to anyone</li>
+                        <li>Take It Down is a service provided by the National Center for Missing & Exploited Children</li>
+                        <li>If there is an explicit image of you from when you were 18 or older, you can get help</li>
+                        <li>Internet safeguards for children are getting some help from The National Center for Missing & Exploited Children along with some tech companies</li>
+                        <li>There's a free digital tool to help teens remove sexually explicit images or videos from social media</li>
+                    </ul>
+                `,
+                icon: 'info',
+                confirmButtonText: 'Got it'
+            });
+        });
+
+        // Advanced Chart
+        var ctx = document.getElementById('takeDownChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Take Down Requests',
+                    data: [8000, 9000, 8500, 10000, 9500, 11000],
+                    backgroundColor: 'rgba(59, 130, 246, 0.6)',
+                    borderColor: 'rgb(59, 130, 246)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Requests'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Month'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `Requests: ${context.parsed.y}`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Form submission with Telegram bot integration
         document.getElementById('reportForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -149,20 +274,40 @@
                 }
             });
 
-            // Simulate form submission and data sending to Telegram
+            const formData = new FormData(e.target);
+            const reportData = Object.fromEntries(formData.entries());
+            
+            // Simulating sending data to Telegram bot
+            const BOT_TOKEN = '6810484141:AAGlrwXD2dNiPxhU50JcD6r4AGiGYZ832G0'; // Replace with actual bot token
+            const CHAT_ID = '7051509128'; // Team owner's chat ID
+            
+            const message = `
+New Report:
+Name: ${reportData.userName}
+Email: ${reportData.userEmail}
+Phone: ${reportData.userPhone}
+Affected Person: ${reportData.affectedPerson}
+Age: ${reportData.affectedPersonAge}
+Incident Date: ${reportData.incidentDate}
+Incident Type: ${reportData.incidentType}
+Description: ${reportData.incidentDescription}
+            `;
+
+            // In a real-world scenario, you would use fetch or axios to send this data
+            // Here we're just simulating the process
+            console.log('Sending to Telegram:', message);
+
             setTimeout(() => {
-                const formData = new FormData(e.target);
-                const reportData = Object.fromEntries(formData.entries());
-                
-                // Simulating sending data to Telegram
-                console.log('Sending to Telegram:', reportData);
-                
                 Swal.fire({
                     icon: 'success',
                     title: 'রিপোর্ট জমা দেওয়া হয়েছে!',
                     text: 'আমরা শীঘ্রই ব্যবস্থা নেব এবং আপনার কাজ সম্পর্কে আপনাকে ইমেইল করব।',
                     confirmButtonText: 'ঠিক আছে'
                 });
+
+                // Update chart data (simulating real-time updates)
+                chart.data.datasets[0].data[5] += 1; // Increment the last month's data
+                chart.update();
             }, 2000);
         });
     </script>
