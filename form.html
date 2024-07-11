@@ -2,111 +2,168 @@
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VorTex - Report Remove Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>VorTex - Cybersecurity Report Form</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         @import url('https://cdn.rawgit.com/sh4hids/bangla-web-fonts/bensen-handwriting/stylesheet.css');
         body {
             font-family: 'BenSenHandwriting', sans-serif;
         }
-        .loader {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.8);
-            z-index: 9999;
+        .banner {
+            background-image: url('https://github.com/VorTexCyberBD/.github/raw/main/profile/IMG_7812.jpeg');
+            background-size: cover;
+            background-position: center;
+            height: 200px;
         }
-        .loader img {
+        .logo {
+            width: 100px;
+            height: 100px;
+            background-image: url('https://avatars.githubusercontent.com/u/175133802?s=200&v=4');
+            background-size: contain;
+            background-repeat: no-repeat;
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 150px;
+            left: 20px;
+            border-radius: 50%;
+            border: 4px solid white;
         }
     </style>
 </head>
 <body class="bg-gray-100">
-    <div class="loader">
-        <img src="logo.png" alt="Loading..." class="w-16 h-16">
-    </div>
+    <div class="banner relative"></div>
+    <div class="logo"></div>
 
-    <nav class="bg-blue-600 text-white p-4">
+    <nav class="bg-blue-600 text-white p-4 shadow-md">
         <div class="container mx-auto">
-            <p class="text-sm">Nude images of young people under the age of 18 are not allowed to be posted on social media. If a nude picture has been posted online, the social networking site should take it down straight away, but you can also contact them directly yourself to ask them to remove it.</p>
+            <h1 class="text-2xl font-bold mb-2">VorTex Cybersecurity</h1>
+            <p class="text-sm mb-2">"সাইবার অপরাধ এর বিরুদ্ধে আপনার সুরক্ষা আমাদের দায়িত্ব"</p>
+            <p class="text-xs italic">Your protection against cybercrime is our responsibility</p>
         </div>
     </nav>
 
     <div class="container mx-auto p-8">
-        <h1 class="text-3xl font-bold mb-6">চাইল্ডলাইন এবং ইন্টারনেট ওয়াচ ফাউন্ডেশন x VorTex - Cyber Security (IWF) রিপোর্ট ফর্ম</h1>
-        
-        <form id="reportForm" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="userName">
-                    আপনার নাম
-                </label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="userName" type="text" required>
+        <div class="bg-white shadow-lg rounded-lg p-6 mb-6">
+            <h2 class="text-xl font-bold mb-4">VorTex is committed to:</h2>
+            <ul class="list-disc pl-6 space-y-2">
+                <li>🛡️ Fortifying digital infrastructures</li>
+                <li>🔐 Safeguarding sensitive data</li>
+                <li>🌐 Cultivating a secure cyber ecosystem</li>
+                <li>🧠 Fostering cybersecurity awareness</li>
+            </ul>
+        </div>
+
+        <form id="reportForm" class="bg-white shadow-lg rounded-lg p-6">
+            <h2 class="text-2xl font-bold mb-6">Cybersecurity Incident Report Form</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="userName">
+                        আপনার নাম (Your Name)
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="userName" type="text" required>
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="userEmail">
+                        আপনার ইমেইল (Your Email)
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="userEmail" type="email" required>
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="affectedPerson">
+                        প্রভাবিত ব্যক্তির নাম (Affected Person's Name)
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="affectedPerson" type="text" required>
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="affectedPersonAge">
+                        প্রভাবিত ব্যক্তির বয়স (Affected Person's Age)
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="affectedPersonAge" type="number" min="1" max="17" required>
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="incidentType">
+                        ঘটনার ধরন (Incident Type)
+                    </label>
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="incidentType" required>
+                        <option value="">Select an option</option>
+                        <option value="unauthorizedAccess">Unauthorized Access</option>
+                        <option value="dataLeak">Data Leak</option>
+                        <option value="onlineHarassment">Online Harassment</option>
+                        <option value="identityTheft">Identity Theft</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="incidentDate">
+                        ঘটনার তারিখ (Incident Date)
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="incidentDate" type="date" required>
+                </div>
             </div>
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="userEmail">
-                    আপনার ইমেইল
+
+            <div class="mt-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="incidentDescription">
+                    ঘটনার বিবরণ (Incident Description)
                 </label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="userEmail" type="email" required>
+                <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="incidentDescription" rows="4" required></textarea>
             </div>
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="affectedPerson">
-                    প্রভাবিত ব্যক্তির নাম
-                </label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="affectedPerson" type="text" required>
-            </div>
-            <div class="mb-6">
+
+            <div class="mt-6">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="imageUpload">
-                    ছবি আপলোড করুন
+                    প্রমাণ আপলোড করুন (Upload Evidence)
                 </label>
                 <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="imageUpload" type="file" accept="image/*">
             </div>
-            <div class="flex items-center justify-between">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                    জমা দিন
+
+            <div class="mt-8">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" type="submit">
+                    রিপোর্ট জমা দিন (Submit Report)
                 </button>
             </div>
         </form>
     </div>
 
-    <div id="thankYouPopup" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" style="display: none;">
-        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
-            <div class="mt-3 text-center">
-                <h3 class="text-lg leading-6 font-medium text-gray-900">ধন্যবাদ!</h3>
-                <div class="mt-2 px-7 py-3">
-                    <p class="text-sm text-gray-500">
-                        আপনার রিপোর্ট জমা দেওয়ার জন্য ধন্যবাদ। আমরা শীঘ্রই ব্যবস্থা নেব এবং আপনার কাজ সম্পর্কে আপনাকে ইমেইল করব।
-                    </p>
-                </div>
-                <div class="items-center px-4 py-3">
-                    <button id="closePopup" class="px-4 py-2 bg-blue-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
-                        ঠিক আছে
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
         document.getElementById('reportForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            document.querySelector('.loader').style.display = 'block';
             
-            // Simulate form submission
-            setTimeout(function() {
-                document.querySelector('.loader').style.display = 'none';
-                document.getElementById('thankYouPopup').style.display = 'block';
-            }, 2000);
-        });
+            const affectedPersonAge = document.getElementById('affectedPersonAge').value;
+            if (affectedPersonAge >= 18) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Age Restriction',
+                    text: 'We only handle cases for individuals under 18 years old.',
+                });
+                return;
+            }
 
-        document.getElementById('closePopup').addEventListener('click', function() {
-            document.getElementById('thankYouPopup').style.display = 'none';
+            Swal.fire({
+                title: 'Submitting report...',
+                text: 'Please wait',
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                willOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+
+            // Simulate form submission and data sending to Telegram
+            setTimeout(() => {
+                const formData = new FormData(e.target);
+                const reportData = Object.fromEntries(formData.entries());
+                
+                // Simulating sending data to Telegram
+                console.log('Sending to Telegram:', reportData);
+                
+                Swal.fire({
+                    icon: 'success',
+                    title: 'রিপোর্ট জমা দেওয়া হয়েছে!',
+                    text: 'আমরা শীঘ্রই ব্যবস্থা নেব এবং আপনার কাজ সম্পর্কে আপনাকে ইমেইল করব।',
+                    confirmButtonText: 'ঠিক আছে'
+                });
+            }, 2000);
         });
     </script>
 </body>
