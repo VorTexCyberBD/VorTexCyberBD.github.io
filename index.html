@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VorTex Cybersecurity - Guarding Bangladesh's Digital Frontier</title>
+    <title>VorTex Cybersecurity - Privacy and Legal Information</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
@@ -87,105 +87,8 @@
             color: var(--accent-color);
         }
 
-        .hero {
-            background: url('https://github.com/VorTexCyberBD/.github/raw/main/profile/IMG_7812.jpeg') no-repeat center center/cover;
-            height: 400px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 1;
-        }
-
-        .hero * {
-            z-index: 2;
-        }
-
-        .hero h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 30px;
-            background: var(--accent-color);
-            color: var(--bg-color);
-            text-decoration: none;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            transition: all 0.3s ease;
-        }
-
-        .btn:hover {
-            background: var(--secondary-color);
-            box-shadow: 0 0 15px var(--secondary-color);
-        }
-
-        .services {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        .service {
-            flex-basis: calc(33% - 20px);
-            background: rgba(255, 255, 255, 0.05);
-            margin-bottom: 20px;
-            padding: 20px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .service:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
-        }
-
-        .threat-alert {
-            background: rgba(255, 0, 0, 0.1);
-            border: 1px solid red;
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 5px;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(255, 0, 0, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
-        }
-
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 40px;
-            text-align: center;
-        }
-
-        .stat {
-            font-size: 1.5em;
-        }
-
-        .stat-value {
-            font-size: 2em;
-            color: var(--accent-color);
+        .content {
+            padding: 20px 0;
         }
 
         footer {
@@ -203,15 +106,6 @@
             height: 100%;
             z-index: -1;
         }
-
-        @media (max-width: 768px) {
-            .services, .stats {
-                flex-direction: column;
-            }
-            .service, .stat {
-                flex-basis: 100%;
-            }
-        }
     </style>
 </head>
 <body>
@@ -221,55 +115,44 @@
             <div class="logo">🛡️ VorTex</div>
             <nav>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="hero">
-        <h2>Guarding Bangladesh's Digital Frontier</h2>
-        <p>Your shield against cyber threats in an ever-evolving digital landscape</p>
-        <a href="#contact" class="btn">Get Protected Today</a>
-    </section>
-
     <main class="container">
-        <div class="threat-alert">
-            <h3>⚠️ Cyber Threat Alert</h3>
-            <p id="threat-message">Loading latest threat information...</p>
-        </div>
-
-        <section id="services" class="services">
-            <div class="service">
-                <h3>🔒 Advanced Threat Protection</h3>
-                <p>Next-gen defense against sophisticated cyber threats using AI-powered detection and automated response.</p>
-            </div>
-            <div class="service">
-                <h3>🌐 Secure Network Architecture</h3>
-                <p>Design and implementation of fortress-like network security with zero-trust architecture and multi-layer firewalls.</p>
-            </div>
-            <div class="service">
-                <h3>🕵️ Cyber Intelligence Operations</h3>
-                <p>Proactive threat hunting and intelligence gathering through dark web monitoring and predictive analysis.</p>
-            </div>
-        </section>
-
-        <section class="stats">
-            <div class="stat">
-                <div class="stat-value" id="threats-blocked">0</div>
-                <div>Threats Blocked</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value" id="clients-protected">0</div>
-                <div>Clients Protected</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value" id="uptime">0%</div>
-                <div>Service Uptime</div>
-            </div>
+        <section class="content">
+            <h1>Privacy and Legal Information</h1>
+            
+            <h2>Privacy Policy</h2>
+            <p>At VorTex Cybersecurity, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy outlines how we collect, use, and safeguard your data when you use our website or services.</p>
+            
+            <h3>Information Collection</h3>
+            <p>We collect information you provide directly to us, such as when you fill out a contact form or subscribe to our newsletter. This may include your name, email address, and any other information you choose to provide.</p>
+            
+            <h3>Use of Information</h3>
+            <p>We use the information we collect to provide, maintain, and improve our services, to communicate with you, and to comply with legal obligations.</p>
+            
+            <h3>Data Security</h3>
+            <p>We implement a variety of security measures to maintain the safety of your personal information. However, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
+            
+            <h3>Third-Party Links</h3>
+            <p>Our website may contain links to third-party websites. We are not responsible for the privacy practices or content of these sites.</p>
+            
+            <h3>Changes to This Policy</h3>
+            <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page.</p>
+            
+            <h2>Legal Disclaimer</h2>
+            <p>The information provided on this website is for general informational purposes only. It should not be construed as legal advice or a legal opinion on any specific facts or circumstances.</p>
+            
+            <h2>Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy or our legal practices, please contact us at:</p>
+            <p>Email: <a href="mailto:contact@vortexnetwork.tech">contact@vortexnetwork.tech</a></p>
+            <p>Telegram: <a href="https://t.me/VorTexCyberBD">https://t.me/VorTexCyberBD</a></p>
         </section>
     </main>
 
@@ -314,60 +197,6 @@
         };
 
         setInterval(draw, 30);
-
-        // Simulated threat alerts
-        const threats = [
-            "Ransomware attack targeting financial institutions detected",
-            "Phishing campaign impersonating government agencies identified",
-            "Critical vulnerability in popular CMS being actively exploited",
-            "DDoS attacks on e-commerce platforms increasing",
-            "New strain of mobile malware spreading via social media"
-        ];
-
-        function updateThreatAlert() {
-            const threatMessage = document.getElementById('threat-message');
-            threatMessage.textContent = threats[Math.floor(Math.random() * threats.length)];
-        }
-
-        setInterval(updateThreatAlert, 10000);  // Update every 10 seconds
-
-        // Animated statistics
-        function animateValue(id, start, end, duration) {
-            const range = end - start;
-            let current = start;
-            const increment = end > start? 1 : -1;
-            const stepTime = Math.abs(Math.floor(duration / range));
-            const obj = document.getElementById(id);
-            const timer = setInterval(function() {
-                current += increment;
-                obj.innerHTML = current;
-                if (current == end) {
-                    clearInterval(timer);
-                }
-            }, stepTime);
-        }
-
-        animateValue("threats-blocked", 0, 1000000, 3000);
-        animateValue("clients-protected", 0, 500, 3000);
-        animateValue("uptime", 0, 99, 3000);
-
-        // Hero text effect
-        const heroText = document.querySelector('.hero h2');
-        heroText.innerHTML = heroText.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-        
-        const letters = document.querySelectorAll('.letter');
-        letters.forEach((letter, index) => {
-            letter.style.animationDelay = `${index * 0.1}s`;
-        });
-
-        // Simulating a "hacking" effect
-        setInterval(() => {
-            const randomLetter = letters[Math.floor(Math.random() * letters.length)];
-            randomLetter.style.color = 'var(--accent-color)';
-            setTimeout(() => {
-                randomLetter.style.color = 'var(--secondary-color)';
-            }, 100);
-        }, 100);
     </script>
 </body>
 </html>
